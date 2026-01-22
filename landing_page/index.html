@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makkal Nalapani | Melmaruvathur</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/e768f44d60.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Shared Header -->
+<div id="header-placeholder"></div>
+
+<main class="page-home">
+    <div class="container">
+
+        <div class="home-layout">
+
+            <!-- LEFT: SUMMARY TEXT -->
+            <div class="home-text">
+
+                <p class="home-summary">
+                    March 3, Amma’s Birthday, is commemorated not only as a moment of celebration,
+                    but as a day devoted to service and compassion for the underprivileged. What was
+                    once observed as ‘The Son’s Day’ gradually evolved into ‘The Day of the Mother’,
+                    reflecting values of care, responsibility, and social commitment.
+                </p>
+
+                <p class="home-summary">
+                    Marking this occasion, Makkal Nalapani undertakes wide-ranging welfare programmes
+                    aimed at supporting economically disadvantaged sections of society. Free marriages
+                    are organised without distinction of caste or creed. In addition, livelihood and
+                    social assistance is extended through the distribution of tricycles, sewing machines,
+                    iron boxes, bicycles, educational materials, household essentials, and other
+                    need-based support. Several welfare projects are also implemented in the areas of
+                    education, healthcare, and livelihood development, enabling beneficiaries to
+                    achieve self-reliance and live with dignity and self-respect.
+                </p>
+
+            </div>
+
+            <!-- RIGHT: TEXT SLIDESHOW PILL -->
+            <div class="text-pill">
+                <div class="pill-content">
+                    <div id="pill-text">
+                        அடிகளார் ஓர் அவதார புருஷர்.
+                    </div>
+                    <div class="pill-author">
+                        – அன்னையின் அருள்வாக்கு
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+<!-- COUNTDOWN SECTION (ABOVE FOOTER) -->
+<section class="countdown-section">
+    <div class="container">
+
+        <!-- Birthday Message -->
+        <div id="birthday-message" class="birthday-message">
+            Happy Birthday Amma !
+        </div>
+
+        <!-- Countdown Grid -->
+        <div id="countdown-grid" class="countdown-grid">
+
+            <div class="time-box">
+                <span id="cd-days" class="time-value">00</span>
+                <span class="time-label">DAYS</span>
+            </div>
+
+            <div class="time-separator">:</div>
+
+            <div class="time-box">
+                <span id="cd-hours" class="time-value">00</span>
+                <span class="time-label">HOURS</span>
+            </div>
+
+            <div class="time-separator">:</div>
+
+            <div class="time-box">
+                <span id="cd-minutes" class="time-value">00</span>
+                <span class="time-label">MINUTES</span>
+            </div>
+
+            <div class="time-separator">:</div>
+
+            <div class="time-box">
+                <span id="cd-seconds" class="time-value">00</span>
+                <span class="time-label">SECONDS</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="container footer-content">
+
+        <div class="footer-block">
+            <h4>Contact</h4>
+            <p>
+                Phone: +91 44-27529096<br>
+                Mail: maruvoorhelp@gmail.com
+            </p>
+        </div>
+
+        <div class="footer-block">
+            <h4>Address</h4>
+            <p>
+                Makkal Nalapani,<br>
+                Melmaruvathur Adhiparasakthi Spiritual Movement<br>
+                No.1 GST Road,<br>
+                Melmaruvathur - 603319,<br>
+                Tamil Nadu
+            </p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Makkal Nalapani, Melmaruvathur. All rights reserved.
+    </div>
+</footer>
+
+<!-- Load shared header -->
+<script>
+fetch("header.html")
+    .then(res => res.text())
+    .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+    });
+</script>
+
+<!-- Countdown Logic -->
+<script>
+(function () {
+
+    const daysEl = document.getElementById("cd-days");
+    const hoursEl = document.getElementById("cd-hours");
+    const minutesEl = document.getElementById("cd-minutes");
+    const secondsEl = document.getElementById("cd-seconds");
+
+    const countdownGrid = document.getElementById("countdown-grid");
+    const birthdayMessage = document.getElementById("birthday-message");
+
+    function isMarchThird(date) {
+        return date.getMonth() === 2 && date.getDate() === 3;
+    }
+
+    function getNextTargetDate(now) {
+        const year = now.getFullYear();
+        let target = new Date(year, 2, 3, 0, 0, 0);
+
+        if (now > target) {
+            target = new Date(year + 1, 2, 3, 0, 0, 0);
+        }
+
+        return target;
+    }
+
+    function updateCountdown() {
+        const now = new Date();
+
+
+        if (isMarchThird(now)) {
+            countdownGrid.style.display = "none";
+            birthdayMessage.style.display = "block";
+            return;
+        }
+
+        birthdayMessage.style.display = "none";
+        countdownGrid.style.display = "flex";
+
+        const targetDate = getNextTargetDate(now);
+        const diff = targetDate.getTime() - now.getTime();
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        daysEl.textContent = String(days).padStart(2, "0");
+        hoursEl.textContent = String(hours).padStart(2, "0");
+        minutesEl.textContent = String(minutes).padStart(2, "0");
+        secondsEl.textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+})();
+</script>
+
+<!-- Tamil Slideshow -->
+<script>
+(function () {
+    const pillText = document.getElementById("pill-text");
+    if (!pillText) return;
+
+    const messages =
+        [
+        "குருவின் பிறந்த நாளைச் சிறப்பாகக் கொண்டாட வேண்டும் என்ற எண்ணம் இயல்பாகவே உங்களுக்கே வரவேண்டும். ஆதலால் அடிகளாரிடம் சென்று கேட்காதே. அதில் அவனுக்கு விருப்பமில்லை! உங்களுக்குத்தான் அந்த அக்கறை இருக்க வேண்டும்.",
+        "அடிகளார் பிறந்த நாளின் போது, பாதபூஜை செய்து பாதங்களில் வைக்கப்பட்ட குங்குமத்தை எடுத்து நெற்றியில் வைத்துக் கொள்ளுங்கள்.",
+        "அடிகளார் பிறந்த நாள் விழாவை ஏதோ ஒரு பிறந்த நாள் விழா என்று கருதிக் கொள்ளக் கூடாது. அது உங்களுக்கு ஒரு வழிகாட்டியாக இருப்பதோடு உலகில் தாய்மை பண்பு செழித்து வளர்வதற்கு வாய்ப்பாகவும் அமையும்.",
+        "பட்டிதொட்டி எங்கும் அடிகளாரின் அவதாரத் திருநாளை மக்கள் எல்லாம் அறியும்படி செய்யவேண்டும். உலகத்திற்கு அச்சாணியாகத்தான் அடிகளாரை அவதாரமாகக் கொடுத்திருக்கிறேன். நீங்கள் ஆதாரத்திற்காகவே இந்த அவதாரம்!.",
+        "அடிகளார் பிறந்த நாளை ஒட்டித் தான தருமம் செய்து பார் ! செலவு செய்து பார் ! அதனால் வரும் பலனை உணர்வாய்.",
+        "தாய் தந்தை பிறந்த நாள் விழா என்றால் குழந்தைகள் சந்தோஷப்பட வேண்டும். குழந்தைகள் பிறந்த நாள் விழா என்றால் தாய் தந்தையர் சந்தோஷப்பட வேண்டும். ஆன்மிகத்தில் குருவிற்கு பிறந்த நாள் என்றால் பக்தர்கள் சந்தோஷப்படவேண்டும். குருவிற்கு பிறந்த நாள் கொண்டாடுவது உங்கள் வாழ்வில் மிக முக்கியத்துவம் கொண்டது."
+    ];
+
+    let index = 0;
+
+    setInterval(function () {
+        pillText.style.opacity = "0";
+        pillText.style.transform = "translateY(12px)";
+
+        setTimeout(function () {
+            index = (index + 1) % messages.length;
+            pillText.textContent = messages[index];
+            pillText.style.opacity = "1";
+            pillText.style.transform = "translateY(0)";
+        }, 600);
+    }, 10000);
+})();
+</script>
+
+</body>
+</html>

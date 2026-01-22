@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Makkal Nalapani</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/e768f44d60.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Shared Header -->
+<div id="header-placeholder"></div>
+
+<main class="page-about">
+    <div class="container">
+
+        <h1>About Makkal Nalapani</h1>
+
+        <div class="about-layout">
+
+            <!-- LEFT: TEXT -->
+            <div class="about-text">
+
+                <p>
+                    Makkal Nalapani is a large scale people welfare initiative organised as part of
+                    Amma’s Birthday celebrations. The initiative is intended to support individuals
+                    and families by addressing genuine needs through a structured and transparent
+                    process.
+                </p>
+
+                <p>
+                    The programme focuses on organised planning, coordination across districts,
+                    and responsible execution so that support reaches the right beneficiaries in
+                    a dignified and accountable manner.
+                </p>
+
+                <h2>Purpose of the Initiative</h2>
+
+                <p>
+                    The primary purpose of Makkal Nalapani is to identify authentic requirements
+                    from the public and provide timely assistance. Emphasis is placed on fairness,
+                    verification, and proper utilisation of resources rather than ad hoc distribution.
+                </p>
+
+                <h2>How the Initiative is Organised</h2>
+
+                <p>
+                    The initiative follows a phased approach carried out over several weeks. The
+                    broad flow includes:
+                </p>
+
+                <ul>
+                    <li>Collection of requirements from districts and the public</li>
+                    <li>Verification and shortlisting of beneficiaries</li>
+                    <li>Planning and approval of resources</li>
+                    <li>Procurement and logistical preparation</li>
+                    <li>Planned distribution during the main event</li>
+                </ul>
+
+                <h2>Approximate Timelines</h2>
+
+                <ul>
+                    <li>January to early february: Requirement collection and initial planning</li>
+                    <li>Early to mid February: Verification and finalisation</li>
+                    <li>Late February: Procurement and logistics</li>
+                    <li>March 3rd: Main distribution event</li>
+                </ul>
+
+                <h2>Commitment and Accountability</h2>
+
+                <p>
+                    The initiative is carried out with strong emphasis on documentation,
+                    accountability, and transparency. Each stage is designed to minimise errors,
+                    avoid duplication, and maintain trust among participants and beneficiaries.
+                </p>
+
+            </div>
+
+            <!-- RIGHT: IMAGE -->
+            <div class="about-image">
+                <img src="bday.jpg" alt="Makkal Nalapani community welfare initiative">
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-content">
+
+        <div class="footer-block">
+            <h4>Contact</h4>
+            <p>
+                Phone: +91 44-27529096<br>
+                Mail: maruvoorhelp@gmail.com
+            </p>
+        </div>
+
+        <div class="footer-block">
+            <h4>Address</h4>
+            <p>
+                Makkal Nalapani,<br>
+                Melmaruvathur Adhiparasakthi Spiritual Movement<br>
+                No.1, GST Road,<br>
+                Melmaruvathur - 603319,<br>
+                Tamil Nadu
+            </p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Makkal Nalapani, Melmaruvathur. All rights reserved.
+    </div>
+</footer>
+
+<!-- Load shared header -->
+<script>
+fetch("header.html")
+    .then(function (response) {
+        return response.text();
+    })
+    .then(function (html) {
+        document.getElementById("header-placeholder").innerHTML = html;
+    });
+</script>
+
+</body>
+</html>

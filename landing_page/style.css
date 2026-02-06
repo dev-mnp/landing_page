@@ -28,6 +28,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
 }
 
 /* BRAND */
@@ -68,42 +69,49 @@ body {
 }
 
 /* NAV PILLS */
+
 .nav-pills {
     display: flex;
     gap: 14px;
+    flex-wrap: wrap;
 }
 
 .nav-pill-item {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 10px 18px;
-    background-color: #f4b400;
+    gap: 10px;
+    padding: 12px 22px;
+    background-color: #f2ad1f;
     border-radius: 30px;
     text-decoration: none;
-    font-weight: 600;
-    color: #222;
+    font-weight: 700;
+    color: #1f1f1f;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+    white-space: nowrap;
 }
 
 .nav-pill-item:hover {
-    background-color: #e6a900;
+    background-color: #e29e0f;
 }
+
 
 /* PORTAL BUTTON */
 .portal-btn {
-    background-color: #99271A;
+    background-color: #a52b1c;
     color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 28px;
+    padding: 12px 24px;
+    border-radius: 30px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.18);
+    white-space: nowrap;
 }
 
 .portal-btn:hover {
-    background-color: #7f2016;
+    background-color: #8d2317;
 }
 
 /* ================= MAIN CONTENT ================= */
@@ -263,6 +271,7 @@ main {
     justify-content: center;
     align-items: center;
     gap: 14px;
+    flex-wrap: wrap;
 }
 
 /* TIME BOX */
@@ -427,9 +436,55 @@ main {
         gap: 24px;
     }
 }
+.nav-icon {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    display: block;
+}
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+    .main-header {
+        padding: 12px 0;
+    }
+
+    .header-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-right {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .nav-pills {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .nav-pill-item,
+    .portal-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .brand img {
+        height: 40px;
+    }
+
+    .brand-title {
+        font-size: 20px;
+    }
+
+    .brand-subtitle {
+        font-size: 14px;
+    }
+
     .home-layout,
     .page-about .about-layout {
         flex-direction: column;
@@ -438,6 +493,10 @@ main {
 
     .home-pill {
         margin-top: 20px;
+    }
+
+    .home-summary {
+        font-size: 16px;
     }
 }
 
@@ -453,5 +512,21 @@ main {
 @media (max-width: 768px) {
     .countdown-section {
         margin-bottom: 180px;
+    }
+
+    .countdown-grid {
+        gap: 10px;
+    }
+
+    .time-box {
+        min-width: 64px;
+    }
+
+    .time-value {
+        font-size: 32px;
+    }
+
+    .time-separator {
+        font-size: 26px;
     }
 }
